@@ -11,4 +11,4 @@ Phil wakes up again on groundhog day. Now he stuck in an timeloop to repeat the 
 ## Design concept
 
 Current concept of the website is an old clock that appears in the movie. The clock has design of flipping though pages. 
-But the website version of the clock has the explenation of the moment with an picture.
+But the website version of the clock has the explanation of the moment with an picture.
