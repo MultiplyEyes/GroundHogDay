@@ -1,0 +1,71 @@
+:root{
+    --clockframe: #ADB8D6;
+    --clockinner: #000002;
+    --clockpage: #CDC0B9;
+}
+
+*{
+    margin: auto;
+    padding: auto;
+    list-style: none;
+}
+
+body{
+    background-color: var(--clockframe);
+    height: 100vh;
+    container-name: myContainer;
+    container-type: inline-size;
+}
+
+section:has(section){
+    margin-right: 0;
+
+    display: flex;
+    width: 96vw;
+    height: 90vh;
+    max-height: 800px;
+    gap: 1em;
+
+    background-color: var(--clockinner);
+
+    & > section{
+        width: 25em;
+        height: 30em;
+        background-color: var(--clockpage);
+        border-radius: 1em;
+    }
+
+    @container myContainer (min-width: 0px){
+        & > section:first-child{
+            width: 0;
+            height: 0;
+        }
+    }
+
+    @container myContainer (min-width: 600px){
+            & > section:first-child{
+            background-color: var(--clockinner);
+            border-style: solid;
+            color: #ADB8D6;
+
+            width: 10em;
+            height: 20em;
+
+            & > ul{
+                padding: 0;
+                & > li{
+                    padding: auto;
+                    height: 1em;
+                    width: 90%;
+                    background-color: var(--clockpage);
+                    margin: 0.5em;
+                    border-radius: 1em;
+                }
+            }
+        }
+    }
+    
+    & > section:last-child{
+        width: 40em;
+    }
+}
