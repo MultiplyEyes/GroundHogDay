@@ -2,6 +2,8 @@
     --clockframe: #ADB8D6;
     --clockinner: #000002;
     --clockpage: #CDC0B9;
+    
+    --banner: #e7a77a;
 }
 
 *{
@@ -17,14 +19,43 @@ body{
     container-type: inline-size;
 }
 
-section:has(section){
-    margin-right: 0;
+header{
+    width: 100%;
+    background-color: var(--banner);
 
+    transition: 1s;
+
+    text-align: center;
+
+    @container myContainer (min-width: 0px){
+        height: 3em;
+    }
+
+    @container myContainer (min-width: 600px){
+        height: 2.5em;
+    }
+
+    & > h1{
+        font-size: 2em;
+    }
+}
+
+section:has(section){
     display: flex;
+
+    @container myContainer (min-width: 0px){
+        flex-direction: column;
+        gap: 1em;
+    }
+
+    @container myContainer (min-width: 600px){
+        flex-direction: row;
+        margin-right: 0;
+    }
+
     width: 96vw;
     height: 90vh;
-    max-height: 800px;
-    gap: 1em;
+    padding: 1px;
 
     background-color: var(--clockinner);
 
@@ -33,6 +64,21 @@ section:has(section){
         height: 30em;
         background-color: var(--clockpage);
         border-radius: 1em;
+        max-width: 80vw;
+
+        & > h2{
+            padding: 1px;
+            text-align: center;
+            border-style: solid;
+            border-right: var(--clockinner);
+            border-left: var(--clockinner);
+            border-top: var(--clockinner);
+        }
+
+        & > p{
+            padding: 1em;
+            font-size: larger;
+        }
     }
 
     @container myContainer (min-width: 0px){
@@ -43,9 +89,10 @@ section:has(section){
     }
 
     @container myContainer (min-width: 600px){
-            & > section:first-child{
+        & > div:first-child{
             background-color: var(--clockinner);
             border-style: solid;
+            border-radius: 1em;
             color: #ADB8D6;
 
             width: 10em;
@@ -65,7 +112,18 @@ section:has(section){
         }
     }
     
-    & > section:last-child{
+    & > div:last-child{
         width: 40em;
+        height: 30em;
+        background-color: var(--clockpage);
+        border-radius: 1em;
+        max-width: 80vw;
+
+        @container myContainer (min-width: 0px){
+            margin-bottom: 20px;
+        }
+        @container myContainer (min-width: 600px){
+            margin-bottom: auto;
+        }
     }
 }
