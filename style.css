@@ -6,6 +6,9 @@
 
     --banner--height--cut: 20vh;
     --banner--snow--correction: -25vw;
+
+    /* container size */
+    --laptop--screen: 1000px;
 }
 
 *{
@@ -62,19 +65,14 @@ header{
     /* phone screen */
 }
 
-footer{
-    width: 100vw;
-    height: 2em;
-    background-color: var(--border);
-}
 
 div:has(section){
     width: 100vw;
-    height: 75vh;
     background-color: var(--snow);
 
     /* laptop screen */
-    @container body (min-width: 1000px){
+    @container body (width >= 1000px){
+        height: 75vh;
         display: flex;
         justify-content: space-around;
         
@@ -84,9 +82,20 @@ div:has(section){
             background-color: var(--night--sky2);
             width: 45vw;
             height: 65vh;
+
+            container-name: picture;
+            container-type: inline-size;
             
             border-width: 10px;
             border-style: solid;
+
+            img{
+                width: 45vw;
+                height: 65vh;
+
+                max-width: 45vw;
+                max-height: 65vh;
+            }
         }
 
         section{
@@ -96,10 +105,68 @@ div:has(section){
 
             border-width: 10px;
             border-style: solid;
+
+            h2{
+                margin-top: 15px;
+                text-align: center;
+            }
         }
     }
 
     /* ipad screen */
+    @container body (width < 1000px){
+        /* display: flex; */
+        justify-content: space-around;
+        
+        color: var(--border);
+        
+        div{
+            margin-top: 10px;
+            margin-bottom: 10px;
+
+            background-color: var(--night--sky2);
+            width: 350px;
+            height: 350px;
+
+            container-name: picture;
+            container-type: inline-size;
+            
+            border-width: 10px;
+            border-style: solid;
+
+            img{
+                width: 350px;
+                height: 350px;
+
+                max-width: 350px;
+                max-height: 350px;;
+            }
+        }
+
+        section{
+            margin-bottom: 10px;
+
+            background-color: var(--night--sky2);
+            width: 350px;
+            height: 350px;
+
+            border-width: 10px;
+            border-style: solid;
+
+            h2{
+                margin-top: 15px;
+                text-align: center;
+            }
+        }
+    }
 
     /* phone screen */
+}
+
+
+
+footer{
+    width: 100vw;
+    height: 2em;
+    background-color: var(--border);
 }
