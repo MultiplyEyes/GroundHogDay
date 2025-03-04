@@ -1,5 +1,6 @@
 :root{
     --night--sky: #15323a;
+    --night--sky2: #546bab;
     --border: #2b2c30;
     --snow: #fffff3;
 
@@ -16,21 +17,26 @@ body{
     overflow-x: clip;
     background-color: var(--clockframe);
     height: 100vh;
-    container-name: myContainer;
+
+    container-name: body;
     container-type: inline-size;
 }
 
 header{
     height: 100vh;
     width: 100vw;
-    background-color: var(--night--sky);
+    background-image: 
+        linear-gradient(
+            var(--night--sky),
+            var(--night--sky2)
+        )
+    ;
+    
+    /* laptop screen */
+    @container body (min-width: 1000px){
+
     display: flex;
 
-    container-name: banner;
-    container-type: inline-size;
-
-    /* laptop screen */
-    @container banner (min-width: 1000px){
         h1{
             margin-left: 0.2em;
             position: relative;
@@ -38,7 +44,7 @@ header{
             transform: rotate(-20deg);
         }
     
-        > span{
+        span{
             /* position the object correct */
             margin-left: var(--banner--snow--correction);
             margin-top: var(--banner--height--cut);
@@ -60,4 +66,40 @@ footer{
     width: 100vw;
     height: 2em;
     background-color: var(--border);
+}
+
+div:has(section){
+    width: 100vw;
+    height: 75vh;
+    background-color: var(--snow);
+
+    /* laptop screen */
+    @container body (min-width: 1000px){
+        display: flex;
+        justify-content: space-around;
+        
+        color: var(--border);
+        
+        div{
+            background-color: var(--night--sky2);
+            width: 45vw;
+            height: 65vh;
+            
+            border-width: 10px;
+            border-style: solid;
+        }
+
+        section{
+            background-color: var(--night--sky2);
+            width: 45vw;
+            height: 65vh;
+
+            border-width: 10px;
+            border-style: solid;
+        }
+    }
+
+    /* ipad screen */
+
+    /* phone screen */
 }
