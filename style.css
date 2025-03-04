@@ -1,9 +1,6 @@
 :root{
-    --clockframe: #ADB8D6;
-    --clockinner: #000002;
-    --clockpage: #CDC0B9;
-    
-    --banner: #e7a77a;
+    --night--sky: #15323a;
+    --border: #2b2c30;
 }
 
 *{
@@ -13,117 +10,21 @@
 }
 
 body{
+    overflow-x: clip;
     background-color: var(--clockframe);
     height: 100vh;
     container-name: myContainer;
     container-type: inline-size;
 }
 
-header{
-    width: 100%;
-    background-color: var(--banner);
-
-    transition: 1s;
-
-    text-align: center;
-
-    @container myContainer (min-width: 0px){
-        height: 3em;
-    }
-
-    @container myContainer (min-width: 600px){
-        height: 2.5em;
-    }
-
-    & > h1{
-        font-size: 2em;
-    }
+div{
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--night--sky);
 }
 
-section:has(section){
-    display: flex;
-
-    @container myContainer (min-width: 0px){
-        flex-direction: column;
-        gap: 1em;
-    }
-
-    @container myContainer (min-width: 600px){
-        flex-direction: row;
-        margin-right: 0;
-    }
-
-    width: 96vw;
-    height: 90vh;
-    padding: 1px;
-
-    background-color: var(--clockinner);
-
-    & > section{
-        width: 25em;
-        height: 30em;
-        background-color: var(--clockpage);
-        border-radius: 1em;
-        max-width: 80vw;
-
-        & > h2{
-            padding: 1px;
-            text-align: center;
-            border-style: solid;
-            border-right: var(--clockinner);
-            border-left: var(--clockinner);
-            border-top: var(--clockinner);
-        }
-
-        & > p{
-            padding: 1em;
-            font-size: larger;
-        }
-    }
-
-    @container myContainer (min-width: 0px){
-        & > section:first-child{
-            width: 0;
-            height: 0;
-        }
-    }
-
-    @container myContainer (min-width: 600px){
-        & > div:first-child{
-            background-color: var(--clockinner);
-            border-style: solid;
-            border-radius: 1em;
-            color: #ADB8D6;
-
-            width: 10em;
-            height: 20em;
-
-            & > ul{
-                padding: 0;
-                & > li{
-                    padding: auto;
-                    height: 1em;
-                    width: 90%;
-                    background-color: var(--clockpage);
-                    margin: 0.5em;
-                    border-radius: 1em;
-                }
-            }
-        }
-    }
-    
-    & > div:last-child{
-        width: 40em;
-        height: 30em;
-        background-color: var(--clockpage);
-        border-radius: 1em;
-        max-width: 80vw;
-
-        @container myContainer (min-width: 0px){
-            margin-bottom: 20px;
-        }
-        @container myContainer (min-width: 600px){
-            margin-bottom: auto;
-        }
-    }
+footer{
+    width: 100vw;
+    height: 2em;
+    background-color: var(--border);
 }
