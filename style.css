@@ -1,11 +1,14 @@
 :root{
     --night--sky: #15323a;
     --border: #2b2c30;
+    --snow: #fffff3;
+
+    --banner--height--cut: 20vh;
+    --banner--snow--correction: -25vw;
 }
 
 *{
     margin: auto;
-    padding: auto;
     list-style: none;
 }
 
@@ -17,10 +20,40 @@ body{
     container-type: inline-size;
 }
 
-div{
+header{
     height: 100vh;
     width: 100vw;
     background-color: var(--night--sky);
+    display: flex;
+
+    container-name: banner;
+    container-type: inline-size;
+
+    /* laptop screen */
+    @container banner (min-width: 1000px){
+        h1{
+            margin-left: 0.2em;
+            position: relative;
+            font-size: 10em;
+            transform: rotate(-20deg);
+        }
+    
+        > span{
+            /* position the object correct */
+            margin-left: var(--banner--snow--correction);
+            margin-top: var(--banner--height--cut);
+            align-items: flex-end;
+    
+            /* This help me with the shape */
+            /* https://css-tricks.com/the-shapes-of-css/ */
+            border-bottom: calc(100vh - var(--banner--height--cut)) solid var(--snow);
+            border-left: 100vw solid transparent;
+        }
+    }
+
+    /* ipad screen */
+
+    /* phone screen */
 }
 
 footer{
