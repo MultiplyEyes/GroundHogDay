@@ -1,6 +1,6 @@
 :root{
-    --clockframe: #ADB8D6;
-    --clockinner: #000002;
+    --clockframe: #FAF9F6;
+    --clockinner: #3B312B;
     --clockpage: #CDC0B9;
     
     --banner: #e7a77a;
@@ -10,6 +10,7 @@
     margin: auto;
     padding: auto;
     list-style: none;
+    overflow-x: clip;
 }
 
 body{
@@ -19,111 +20,49 @@ body{
     container-type: inline-size;
 }
 
-header{
-    width: 100%;
-    background-color: var(--banner);
+div{
+    width: 100vw;
 
-    transition: 1s;
+    > section{
+        margin-top: 10vh;
+        width: 95vw;
+        height: 80vh;
 
-    text-align: center;
+        background-color: var(--clockinner);
+        
+        border-radius: 50px;
+        display: flex;
 
-    @container myContainer (min-width: 0px){
-        height: 3em;
-    }
+        >div{
+            width: 20vw;
+            height: 50vh;
+            background-color: black;
+            color: #CDC0B9;
 
-    @container myContainer (min-width: 600px){
-        height: 2.5em;
-    }
+            font-size: 40vh;
+            
+            border-radius: 10px;
 
-    & > h1{
-        font-size: 2em;
-    }
-}
-
-section:has(section){
-    display: flex;
-
-    @container myContainer (min-width: 0px){
-        flex-direction: column;
-        gap: 1em;
-    }
-
-    @container myContainer (min-width: 600px){
-        flex-direction: row;
-        margin-right: 0;
-    }
-
-    width: 96vw;
-    height: 90vh;
-    padding: 1px;
-
-    background-color: var(--clockinner);
-
-    & > section{
-        width: 25em;
-        height: 30em;
-        background-color: var(--clockpage);
-        border-radius: 1em;
-        max-width: 80vw;
-
-        & > h2{
-            padding: 1px;
             text-align: center;
-            border-style: solid;
-            border-right: var(--clockinner);
-            border-left: var(--clockinner);
-            border-top: var(--clockinner);
-        }
 
-        & > p{
-            padding: 1em;
-            font-size: larger;
-        }
-    }
-
-    @container myContainer (min-width: 0px){
-        & > section:first-child{
-            width: 0;
-            height: 0;
-        }
-    }
-
-    @container myContainer (min-width: 600px){
-        & > div:first-child{
-            background-color: var(--clockinner);
-            border-style: solid;
-            border-radius: 1em;
-            color: #ADB8D6;
-
-            width: 10em;
-            height: 20em;
-
-            & > ul{
-                padding: 0;
-                & > li{
-                    padding: auto;
-                    height: 1em;
-                    width: 90%;
-                    background-color: var(--clockpage);
-                    margin: 0.5em;
-                    border-radius: 1em;
-                }
+            p{
+                margin-top: 2.5vh;
             }
         }
-    }
-    
-    & > div:last-child{
-        width: 40em;
-        height: 30em;
-        background-color: var(--clockpage);
-        border-radius: 1em;
-        max-width: 80vw;
 
-        @container myContainer (min-width: 0px){
-            margin-bottom: 20px;
+        div:first-child{
+            width: 5vw;
         }
-        @container myContainer (min-width: 600px){
-            margin-bottom: auto;
+
+        div:nth-child(2){
+            width: 20vw;
+        }
+
+        div:nth-child(3){
+            width: 20vw;
+        }
+        div:last-child{
+            width: 35vw;
         }
     }
 }
