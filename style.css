@@ -64,5 +64,19 @@ div{
         div:last-child{
             width: 35vw;
         }
+
+        div:last-child::before{
+            display: block;
+            content: "";
+
+            width: 10px;
+            height: 150px;
+
+            position: absolute;
+            bottom: 25%;
+            right: 15%;
+
+            background-color: red;
+        }
     }
 }
