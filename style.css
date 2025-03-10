@@ -4,79 +4,99 @@
     --clockpage: #CDC0B9;
     
     --banner: #e7a77a;
+
+
+    --height: 400px;
+    --width: calc(var(--height) * 2);
+    --depth: calc(var(--height));
+
+
 }
 
-*{
-    margin: auto;
-    padding: auto;
-    list-style: none;
-    overflow-x: clip;
+/* To get the 3d shape of the clock is used chat gpt */
+/* the questions : "How to get 3d box shape with just css and html" */
+
+body {
+    background-color: var(--banner);
 }
 
-body{
-    background-color: var(--clockframe);
-    height: 100vh;
-    container-name: myContainer;
-    container-type: inline-size;
-}
+section:has(div) {
 
-div{
-    width: 100vw;
+    width: var(--width);
+    height: var(--height);
 
-    > section{
-        margin-top: 10vh;
-        width: 95vw;
-        height: 80vh;
+    perspective: 1000px; /* Adds depth */
 
-        background-color: var(--clockinner);
-        
-        border-radius: 50px;
-        display: flex;
+    position: absolute;
+    top: calc(50% - var(--height)/2);
+    left: calc(50% - var(--width)/2);
 
-        >div{
-            width: 20vw;
-            height: 50vh;
-            background-color: black;
-            color: #CDC0B9;
+    /* While trying to convert the chatgpt code to CSS nesting Christian helped with this dumb issue */
+    & > div {
+        /* clock */
+        position: absolute;
+        transform-style: preserve-3d;
 
-            font-size: 40vh;
-            
-            border-radius: 10px;
+        transform: rotateX(0deg) rotateY(-20deg);
+
+        /* all faces */
+        & > div {
+            position: absolute;
+
+            background-color: var(--clockframe);
+            border: 2px solid #000;
 
             text-align: center;
+            line-height: var(--height);
 
-            p{
-                margin-top: 2.5vh;
-            }
+            font-size: 20px;
+            font-weight: bold;
+            color: black;
         }
 
-        div:first-child{
-            width: 5vw;
+        /* height and widht of faces */
+        /* front and back */
+        & > div:nth-child(1), & > div:nth-child(2) {
+            width: var(--width);
+            height: var(--height);
         }
 
-        div:nth-child(2){
-            width: 20vw;
+        /* left and right */
+        & > div:nth-child(3), & > div:nth-child(4) {
+            width: var(--depth);
+            height: var(--height);
         }
 
-        div:nth-child(3){
-            width: 20vw;
+        /* top and bottom */
+        & > div:nth-child(5), & > div:nth-child(6) {
+            width: var(--width);
+            height: var(--depth);
         }
-        div:last-child{
-            width: 35vw;
+
+        /* The faces of the clock */
+        /* front */
+        & > div:nth-child(1) {
+            transform: translateZ(calc(var(--depth)/2));
         }
-
-        div:last-child::before{
-            display: block;
-            content: "";
-
-            width: 10px;
-            height: 150px;
-
-            position: absolute;
-            bottom: 25%;
-            right: 15%;
-
-            background-color: red;
+        /* back */
+        & > div:nth-child(2) {
+            transform: rotateY(180deg) translateZ(calc(var(--depth)/2));
+        }
+        /* left */
+        & > div:nth-child(3) {
+            transform: rotateY(-90deg) translateZ(calc(var(--height) / 2));
+        }
+        /* right */
+        & > div:nth-child(4) {
+            transform: rotateY(90deg) translateZ(calc(var(--height) * 1.5));
+        }
+        /* top */
+        & > div:nth-child(5) {
+            transform: rotateX(90deg) translateZ(calc(var(--height)/2));
+        }
+        /* bottom */
+        & > div:nth-child(6) {
+            transform: rotateX(-90deg) translateZ(calc(var(--height)/2)); 
         }
     }
 }
