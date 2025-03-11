@@ -6,11 +6,12 @@
     --banner: #e7a77a;
 
 
-    --height: 400px;
-    --width: calc(var(--height) * 2);
+    --height: 15vw;
+    --width: calc(var(--height) * 3);
     --depth: calc(var(--height));
 
-
+    --clock-pages: 4;
+    --clock-page-side: 10px;
 }
 
 /* To get the 3d shape of the clock is used chat gpt */
@@ -18,16 +19,18 @@
 
 body {
     background-color: var(--banner);
+
+    height: 1000vh;
 }
 
 section:has(div) {
+    position: sticky;
 
     width: var(--width);
     height: var(--height);
 
     perspective: 1000px; /* Adds depth */
 
-    position: absolute;
     top: calc(50% - var(--height)/2);
     left: calc(50% - var(--width)/2);
 
@@ -38,7 +41,11 @@ section:has(div) {
         transform-style: preserve-3d;
 
         transform: rotateX(0deg) rotateY(-20deg);
-
+        
+        /* scroll animation */
+        animation: clock;
+        animation-timeline: scroll();
+                
         /* all faces */
         & > div {
             position: absolute;
@@ -77,6 +84,36 @@ section:has(div) {
         /* front */
         & > div:nth-child(1) {
             transform: translateZ(calc(var(--depth)/2));
+
+            /* inner clock */
+            & > div {
+                background-color: var(--clockinner);
+                border: 2px solid #000;
+                width: calc(var(--width) - calc(var(--clock-page-side) * 2));
+                height: calc(var(--height) -  calc(var(--clock-page-side) * 2));
+                position: absolute;
+                top: var(--clock-page-side);
+                left: var(--clock-page-side);
+                border-radius: 5px;
+
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+
+                & > div{
+                    background-color: black;
+                    border: solid #000;
+                    width: calc(var(--width) / var(--clock-pages) - 20px);
+                    height: calc(var(--height) - 40px);
+                    border-radius: 5px;
+                    gap: 5em;
+                }
+
+                & > div:nth-child(1){
+                    border: solid #000;
+                    width: calc(var(--width) / var(--clock-pages) / 2 - 20px);
+                }
+            }
         }
         /* back */
         & > div:nth-child(2) {
@@ -88,7 +125,7 @@ section:has(div) {
         }
         /* right */
         & > div:nth-child(4) {
-            transform: rotateY(90deg) translateZ(calc(var(--height) * 1.5));
+            transform: rotateY(90deg) translateZ(calc(var(--height) * 2.5));
         }
         /* top */
         & > div:nth-child(5) {
@@ -98,5 +135,48 @@ section:has(div) {
         & > div:nth-child(6) {
             transform: rotateX(-90deg) translateZ(calc(var(--height)/2)); 
         }
+    }
+}
+
+/* clock animtion */
+@keyframes clock {
+    0% {
+        transform: rotateX(0deg) rotateY(-20deg);
+    }
+    /* 10% {
+        transform: rotateX(0deg) rotateY(20deg);
+    } */
+    20% {
+        transform: rotateX(0deg) rotateY(-30deg);
+    }
+    /* 30% {
+        transform: rotateX(0deg) rotateY(50deg);
+    } */
+    40% {
+        transform: rotateX(20deg) rotateY(50deg);
+    }
+    /* 50% {
+        transform: rotateX(0deg) rotateY(-20deg);
+    } */
+    60% {
+        transform: rotateX(100deg) rotateY(-20deg);
+    }
+    /* 70% {
+        transform: rotateX(0deg) rotateY(-20deg);
+    } */
+    80% {
+        transform: rotateX(200deg) rotateY(0deg);
+    }
+    /* 90% {
+        transform: rotateX(100deg) rotateY(-20deg);
+    } */
+    100% {
+        transform: rotateX(0deg) rotateY(-20deg);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    :root {
+        --height: 25vw;
     }
 }
