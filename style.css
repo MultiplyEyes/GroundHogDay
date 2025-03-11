@@ -39,8 +39,6 @@ section:has(div) {
         /* clock */
         position: absolute;
         transform-style: preserve-3d;
-
-        transform: rotateX(0deg) rotateY(-20deg);
         
         /* scroll animation */
         animation: clock;
@@ -108,10 +106,39 @@ section:has(div) {
                     border-radius: 5px;
                     gap: 5em;
                 }
-
+                /* dial */
                 & > div:nth-child(1){
                     border: solid #000;
                     width: calc(var(--width) / var(--clock-pages) / 2 - 20px);
+                   
+                    display: flex;
+                    flex-direction: column;
+                    position: relative;
+
+                    > div{
+                        position: absolute;
+                        top: 0;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        height: 100%;
+                        width: 100%;
+                        align-items: center;
+
+                        > label{
+                            background-color: red;
+                            z-index: 1;
+                            width: 30px;
+                            height: 10px;
+
+                            /* hover */
+                            &:hover{
+                                background-color: blue;
+                            }
+                        }
+                        
+                    }
+
                 }
 
                 & > div:nth-child(2), div:nth-child(3){
@@ -122,6 +149,37 @@ section:has(div) {
                 & > div:nth-child(4){
                     border: solid #000;
                     width: calc(var(--width) / var(--clock-pages) * 1.75 - 20px);
+
+                    display: flex;
+                    aspect-ratio: auto;
+                    overflow-x: auto;
+                    scroll-snap-type: x mandatory;
+                    scroll-behavior: smooth;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+                    & > img:nth-child(1){
+                        background-image: url('https://live-production.wcms.abc-cdn.net.au/878ad2843811cb2317b65378baa59e8b?impolicy=wcms_crop_resize&cropH=552&cropW=981&xPos=8&yPos=0&width=862&height=485'); 
+                    }
+
+                    & > img:nth-child(2){
+                        background-image: url('https://cinemasips.com/wp-content/uploads/2014/02/groundkoffie.jpg'); 
+                    }
+
+                    & > img:nth-child(3){
+                        background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMYBZv6gK568YgwOE7Jg1reVOTXv8RMQfyzg&s'); 
+                    }
+
+                    & > img{
+                        flex: 1 0 100%;
+                        scroll-snap-align: start;
+                        object-fit: cover;
+
+                        background-repeat: no-repeat;
+                        background-size: cover;
+
+                        width: auto;
+                        height: auto;
+                    }
                 }
             }
         }
@@ -150,13 +208,13 @@ section:has(div) {
 
 /* clock animtion */
 @keyframes clock {
-    0% {
+    /* 0% {
         transform: rotateX(0deg) rotateY(0deg);
     }
 
     100% {
         transform: rotateX(360deg) rotateY(0deg);
-    }
+    } */
 }
 
 @media screen and (max-width: 600px) {

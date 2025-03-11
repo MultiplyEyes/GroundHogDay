@@ -1,0 +1,25 @@
+html:has([value="1"]:checked) {
+    --red: true;
+}
+
+html:has([value="2"]:checked) {
+    --blue: true;
+}
+
+@container style(--blue:true){
+    body{
+        background-color: blue;
+    }
+}
+
+@container style(--red:true){
+    body{
+        background-color: red;
+    }
+}
+
+@container style(--red:true) and style(--blue:true){
+    body{
+        background-color: purple;
+    }
+}
