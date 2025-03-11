@@ -1,13 +1,13 @@
 :root{
     --clockframe: #FAF9F6;
-    --clockinner: #3B312B;
-    --clockpage: #CDC0B9;
+    --clockinner: #0e1111;
+    --clockpage: #232b2b;
     
     --banner: #e7a77a;
 
 
     --height: 15vw;
-    --width: calc(var(--height) * 3);
+    --width: calc(var(--height) * 3.5);
     --depth: calc(var(--height));
 
     --clock-pages: 4;
@@ -101,7 +101,7 @@ section:has(div) {
                 align-items: center;
 
                 & > div{
-                    background-color: black;
+                    background-color: var(--clockpage);
                     border: solid #000;
                     width: calc(var(--width) / var(--clock-pages) - 20px);
                     height: calc(var(--height) - 40px);
@@ -112,6 +112,16 @@ section:has(div) {
                 & > div:nth-child(1){
                     border: solid #000;
                     width: calc(var(--width) / var(--clock-pages) / 2 - 20px);
+                }
+
+                & > div:nth-child(2), div:nth-child(3){
+                    border: solid #000;
+                    width: calc(var(--width) / var(--clock-pages) * 0.75 - 20px);
+                }
+
+                & > div:nth-child(4){
+                    border: solid #000;
+                    width: calc(var(--width) / var(--clock-pages) * 1.75 - 20px);
                 }
             }
         }
@@ -125,7 +135,7 @@ section:has(div) {
         }
         /* right */
         & > div:nth-child(4) {
-            transform: rotateY(90deg) translateZ(calc(var(--height) * 2.5));
+            transform: rotateY(90deg) translateZ(calc(var(--height) * 3));
         }
         /* top */
         & > div:nth-child(5) {
@@ -133,7 +143,7 @@ section:has(div) {
         }
         /* bottom */
         & > div:nth-child(6) {
-            transform: rotateX(-90deg) translateZ(calc(var(--height)/2)); 
+            transform: rotateX(-90deg) translateZ(calc(var(--height)/2));
         }
     }
 }
@@ -141,37 +151,11 @@ section:has(div) {
 /* clock animtion */
 @keyframes clock {
     0% {
-        transform: rotateX(0deg) rotateY(-20deg);
+        transform: rotateX(0deg) rotateY(0deg);
     }
-    /* 10% {
-        transform: rotateX(0deg) rotateY(20deg);
-    } */
-    20% {
-        transform: rotateX(0deg) rotateY(-30deg);
-    }
-    /* 30% {
-        transform: rotateX(0deg) rotateY(50deg);
-    } */
-    40% {
-        transform: rotateX(20deg) rotateY(50deg);
-    }
-    /* 50% {
-        transform: rotateX(0deg) rotateY(-20deg);
-    } */
-    60% {
-        transform: rotateX(100deg) rotateY(-20deg);
-    }
-    /* 70% {
-        transform: rotateX(0deg) rotateY(-20deg);
-    } */
-    80% {
-        transform: rotateX(200deg) rotateY(0deg);
-    }
-    /* 90% {
-        transform: rotateX(100deg) rotateY(-20deg);
-    } */
+
     100% {
-        transform: rotateX(0deg) rotateY(-20deg);
+        transform: rotateX(360deg) rotateY(0deg);
     }
 }
 
