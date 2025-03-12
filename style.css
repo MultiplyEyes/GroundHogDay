@@ -12,19 +12,53 @@
 
     --clock-pages: 4;
     --clock-page-side: 10px;
+
+    --rotate: rotateX(0deg) rotateY(0deg);
+}
+
+*{
+    transition: 1s;
 }
 
 /* To get the 3d shape of the clock is used chat gpt */
 /* the questions : "How to get 3d box shape with just css and html" */
 
+html:has([value="1"]:checked) {
+    --page-one: true;
+}
+
+html:has([value="2"]:checked) {
+    --page-two: true;
+}
+
+html:has([value="3"]:checked) {
+    --page-three: true;
+}
+
 body {
     background-color: var(--banner);
 
-    height: 1000vh;
+    height: 100vh;
+
+    overflow-y: hidden;
+
+    @container style(--page-one:true){
+        background-color: red;
+    }
+
+    @container style(--page-two:true){
+        background-color: darkblue;
+    }
+
+    @container style(--page-three:true){
+        background-color: var(--banner);
+    }
 }
 
 section:has(div) {
     position: sticky;
+
+    transition: 1s;
 
     width: var(--width);
     height: var(--height);
@@ -43,6 +77,23 @@ section:has(div) {
         /* scroll animation */
         animation: clock;
         animation-timeline: scroll();
+
+        transform: var(--rotate);
+
+        @container style(--page-one:true){
+    
+            transform: rotateX(40deg) rotateY(10deg);
+        }
+
+        @container style(--page-two:true){
+    
+            transform: rotateX(5deg) rotateY(-20deg);
+        }
+
+        @container style(--page-three:true){
+    
+            transform: rotateX(-20deg) rotateY(10deg);
+        }
                 
         /* all faces */
         & > div {
@@ -131,6 +182,8 @@ section:has(div) {
                             width: 30px;
                             height: 10px;
 
+                            margin: auto;
+
                             /* hover */
                             &:hover{
                                 background-color: blue;
@@ -141,7 +194,18 @@ section:has(div) {
 
                 }
 
-                & > div:nth-child(2), div:nth-child(3){
+                & > div:nth-child(2){
+                    border: solid #000;
+                    width: calc(var(--width) / var(--clock-pages) * 0.75 - 20px);
+
+                    & > div{
+                        position: absolute;
+                        top: 0;
+                        align-items: center;
+                    }
+                }
+
+                div:nth-child(3){
                     border: solid #000;
                     width: calc(var(--width) / var(--clock-pages) * 0.75 - 20px);
                 }
@@ -149,29 +213,26 @@ section:has(div) {
                 & > div:nth-child(4){
                     border: solid #000;
                     width: calc(var(--width) / var(--clock-pages) * 1.75 - 20px);
-
-                    display: flex;
-                    aspect-ratio: auto;
-                    overflow-x: auto;
-                    scroll-snap-type: x mandatory;
-                    scroll-behavior: smooth;
-                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-
-                    & > img:nth-child(1){
-                        background-image: url('https://live-production.wcms.abc-cdn.net.au/878ad2843811cb2317b65378baa59e8b?impolicy=wcms_crop_resize&cropH=552&cropW=981&xPos=8&yPos=0&width=862&height=485'); 
+                    
+                    @container style(--page-one:true){
+                        & > img:nth-child(1){
+                            background-image: url('https://live-production.wcms.abc-cdn.net.au/878ad2843811cb2317b65378baa59e8b?impolicy=wcms_crop_resize&cropH=552&cropW=981&xPos=8&yPos=0&width=862&height=485'); 
+                        }
                     }
 
-                    & > img:nth-child(2){
-                        background-image: url('https://cinemasips.com/wp-content/uploads/2014/02/groundkoffie.jpg'); 
+                    @container style(--page-two:true){
+                        & > img:nth-child(1){
+                            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMYBZv6gK568YgwOE7Jg1reVOTXv8RMQfyzg&s'); 
+                        }
                     }
 
-                    & > img:nth-child(3){
-                        background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMYBZv6gK568YgwOE7Jg1reVOTXv8RMQfyzg&s'); 
+                    @container style(--page-three:true){
+                        & > img:nth-child(1){
+                            background-image: url('https://cinemasips.com/wp-content/uploads/2014/02/groundkoffie.jpg'); 
+                        }
                     }
 
                     & > img{
-                        flex: 1 0 100%;
-                        scroll-snap-align: start;
                         object-fit: cover;
 
                         background-repeat: no-repeat;
