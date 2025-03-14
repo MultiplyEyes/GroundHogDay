@@ -76,4 +76,4 @@ Adjusting the faces to show images was als possible using Style queries.
 
 With this i can change the pages of the clock with button click and the position of the Clock to make it more interactive.
 
-#### editor note image changing broke so i can't give imgs now.
+#### editor note image changing broke so i can't give imgs now
