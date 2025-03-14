@@ -216,7 +216,7 @@ section:has(div) {
                     
                     @container style(--page-one:true){
                         & > img:nth-child(1){
-                            background-image: url('https://live-production.wcms.abc-cdn.net.au/878ad2843811cb2317b65378baa59e8b?impolicy=wcms_crop_resize&cropH=552&cropW=981&xPos=8&yPos=0&width=862&height=485'); 
+                            background-image: url('card.png'); 
                         }
                     }
 
