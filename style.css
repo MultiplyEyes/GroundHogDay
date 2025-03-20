@@ -1,82 +1,309 @@
 :root{
     --clockframe: #FAF9F6;
-    --clockinner: #3B312B;
-    --clockpage: #CDC0B9;
+    --clockinner: #0e1111;
+    --clockpage: #232b2b;
     
     --banner: #e7a77a;
+
+
+    --height: 13vw;
+    --width: calc(var(--height) * 3.5);
+    --depth: calc(var(--height));
+
+    --clock-pages: 4;
+    --clock-page-side: 10px;
+
+    --rotate: rotateX(0deg) rotateY(0deg);
 }
 
 *{
-    margin: auto;
-    padding: auto;
-    list-style: none;
-    overflow-x: clip;
+    font-family: sans-serif;
 }
 
-body{
-    background-color: var(--clockframe);
+fieldset {
+    height: 100%;
+    width: 100%;
+	aspect-ratio:1;
+	padding:0;
+	border:none;
+	
+	/* alle labels bovenop elkaar */
+	display:grid;
+
+    position: absolute;
+
+   margin: 0;
+}
+
+label {
+	/* alle labels bovenop elkaar */
+	grid-area:1/1;
+	
+	position:relative;
+	
+	/* niet klikbaar */
+	pointer-events:none;
+	/* niet zichtbaar */
+	opacity:0;
+	
+	/* indien zichtbaar --> zo groot als de fieldset */
+	width:100%;
+	height:500vh;
+	/* tekst staat in het midden van het label */
+	display:grid;
+	place-items:center;
+    z-index: 100;
+}
+
+/* het label waarin de radio checked is, kun je zien */
+label:has( :checked ){
+	opacity:1;
+}
+
+/* het label na het label dat checked heeft kun je op klikken */
+label:has( :checked ) + label,
+/* en je kunt klikken op het 1e label als het laatste label checked heeft */
+label:nth-of-type(1):has( ~ label:last-of-type :checked ){
+	pointer-events:all;
+}
+
+input {
+	/* geen rondje */
+	appearance:none;
+	
+	/* dekt het hele label af */
+	position:absolute;
+	inset:0;	
+	margin:0;
+}
+
+/* To get the 3d shape of the clock is used chat gpt */
+/* the questions : "How to get 3d box shape with just css and html" */
+
+html:has([value="1"]:checked) {
+    --page-one: true;
+}
+
+html:has([value="2"]:checked) {
+    --page-two: true;
+}
+
+html:has([value="3"]:checked) {
+    --page-three: true;
+}
+
+html:has([value="4"]:checked) {
+    --page-four: true;
+}
+
+html:has([value="5"]:checked) {
+    --page-five: true;
+}
+
+html:has([value="6"]:checked) {
+    --page-six: true;
+}
+
+html:has([value="7"]:checked) {
+    --page-seven: true;
+}
+
+html:has([value="8"]:checked) {
+    --page-eight: true;
+}
+
+html:has([value="9"]:checked) {
+    --page-nine: true;
+}
+
+html:has([value="10"]:checked) {
+    --page-ten: true;
+}
+
+html:has([value="11"]:checked) {
+    --page-eleven: true;
+}
+
+html:has([value="12"]:checked) {
+    --page-twelve: true;
+}
+
+html:has([value="13"]:checked) {
+    --page-thirteen: true;
+}
+
+html:has([value="14"]:checked) {
+    --page-fourteen: true;
+}
+
+html:has([value="15"]:checked) {
+    --page-fifteen: true;
+}
+
+html:has([value="16"]:checked) {
+    --page-sixteen: true;
+}
+
+html:has([value="17"]:checked) {
+    --page-seventeen: true;
+}
+
+html:has([value="18"]:checked) {
+    --page-eighteen: true;
+}
+
+html:has([value="19"]:checked) {
+    --page-nineteen: true;
+}
+
+html:has([value="20"]:checked) {
+    --page-twenty: true;
+}
+
+html:has([value="21"]:checked) {
+    --page-twentyone: true;
+}
+
+html:has([value="22"]:checked) {
+    --page-twentytwo: true;
+}
+
+html:has([value="23"]:checked) {
+    --page-twentythree: true;
+}
+
+html:has([value="24"]:checked) {
+    --page-twentyfour: true;
+}
+
+html:has([value="25"]:checked) {
+    --page-twentyfive: true;
+}
+
+
+body {
+    transition: 1s;
+    margin: 0;
+    background-color: var(--banner);
+
     height: 100vh;
-    container-name: myContainer;
-    container-type: inline-size;
+
+    overflow-y: hidden;
+
+    @container style(--page-one:true){
+        background-color: rgb(198, 151, 151);
+    }
+
+    @container style(--page-two:true){
+        background-color: rgb(45, 45, 121);
+    }
+
+    @container style(--page-three:true){
+        background-color: rgb(45, 121, 55);
+    }
+
+    @container style(--page-four:true){
+        background-color: rgb(121, 45, 45);
+    }
+
+    @container style(--page-five:true){
+        background-color: rgb(121, 45, 121);
+    }
+
+    @container style(--page-six:true){
+        background-color: rgb(121, 121, 45);
+    }
+
+    @container style(--page-seven:true){
+        background-color: rgb(121, 121, 121);
+    }
+
+    @container style(--page-eight:true){
+        background-color: rgb(45, 45, 45);
+    }
+
+    @container style(--page-nine:true){
+        background-color: rgb(45, 121, 121);
+    }
+
+    @container style(--page-ten:true){
+        background-color: rgb(121, 45, 121);
+    }
+
+    @container style(--page-eleven:true){
+        background-color: rgb(121, 121, 45);
+    }
+
+    @container style(--page-twelve:true){
+        background-color: rgb(121, 121, 121);
+    }
+
+    @container style(--page-thirteen:true){
+        background-color: rgb(45, 45, 45);
+    }
+
+    @container style(--page-fourteen:true){
+        background-color: rgb(45, 121, 121);
+    }
+
+    @container style(--page-fifteen:true){
+        background-color: rgb(121, 45, 121);
+    }
+
+    @container style(--page-sixteen:true){
+        background-color: rgb(121, 121, 45);
+    }
+
+    @container style(--page-seventeen:true){
+        background-color: rgb(121, 121, 121);
+    }
+
+    @container style(--page-eighteen:true){
+        background-color: rgb(45, 45, 45);
+    }
+
+    @container style(--page-nineteen:true){
+        background-color: rgb(45, 121, 121);
+    }
+
+    @container style(--page-twenty:true){
+        background-color: rgb(121, 45, 121);
+    }
+
+    @container style(--page-twentyone:true){
+        background-color: rgb(121, 121, 45);
+    }
+
+    @container style(--page-twentytwo:true){
+        background-color: rgb(121, 121, 121);
+    }
+
+    @container style(--page-twentythree:true){
+        background-color: rgb(45, 45, 45);
+    }
+
+    @container style(--page-twentyfour:true){
+        background-color: rgb(45, 121, 121);
+    }
+
+    @container style(--page-twentyfive:true){
+        background-color: rgb(121, 45, 121);
+    }
 }
 
-div{
-    width: 100vw;
+/* clock animtion */
+@keyframes clock {
+    /* 0% {
+        transform: rotateX(0deg) rotateY(0deg);
+    }
 
-    > section{
-        margin-top: 10vh;
-        width: 95vw;
-        height: 80vh;
+    100% {
+        transform: rotateX(360deg) rotateY(0deg);
+    } */
+}
 
-        background-color: var(--clockinner);
-        
-        border-radius: 50px;
-        display: flex;
-
-        >div{
-            width: 20vw;
-            height: 50vh;
-            background-color: black;
-            color: #CDC0B9;
-
-            font-size: 40vh;
-            
-            border-radius: 10px;
-
-            text-align: center;
-
-            p{
-                margin-top: 2.5vh;
-            }
-        }
-
-        div:first-child{
-            width: 5vw;
-        }
-
-        div:nth-child(2){
-            width: 20vw;
-        }
-
-        div:nth-child(3){
-            width: 20vw;
-        }
-        div:last-child{
-            width: 35vw;
-        }
-
-        div:last-child::before{
-            display: block;
-            content: "";
-
-            width: 10px;
-            height: 150px;
-
-            position: absolute;
-            bottom: 25%;
-            right: 15%;
-
-            background-color: red;
-        }
+@media screen and (max-width: 600px) {
+    :root {
+        --height: 25vw;
     }
 }

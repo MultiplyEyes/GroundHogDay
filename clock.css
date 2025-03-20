@@ -1,0 +1,346 @@
+@media screen and (min-width: 600px) {
+    section:has(>div) {
+        position: sticky;
+        
+        width: var(--width);
+        height: var(--height);
+    
+        perspective: 1000px; /* Adds depth */
+    
+        top: calc(50% - var(--height)/2);
+        left: calc(50% - var(--width)/2);
+    
+        @media screen and (max-width: 600px) {
+            /* margin-top: calc(50% - var(--height)/2); */
+            top: 0;
+        }
+    
+        /* While trying to convert the chatgpt code to CSS nesting Christian helped with this dumb issue */
+        & > div {
+            /* clock */
+            transform-style: preserve-3d;
+            
+            /* scroll animation */
+            animation: clock;
+            animation-timeline: scroll();
+    
+            transform: var(--rotate);
+            
+            @container style(--page-one:true){
+    
+                transition: 1s;
+                transform: rotateX(10deg) rotateY(10deg);
+            }
+    
+            @container style(--page-two:true){
+        
+                transition: 1s;
+                transform: rotateX(5deg) rotateY(-20deg);
+            }
+    
+            @container style(--page-three:true){
+        
+                transition: 1s;
+                transform: rotateX(-20deg) rotateY(10deg);
+            }
+    
+            @container style(--page-four:true){
+        
+                transition: 1s;
+                transform: rotateX(10deg) rotateY(-10deg);
+            }
+    
+            @container style(--page-five:true){
+        
+                transition: 1s;
+                transform: rotateX(-10deg) rotateY(20deg);
+            }
+    
+            @container style(--page-six:true){
+        
+                transition: 1s;
+                transform: rotateX(20deg) rotateY(-10deg);
+            }
+    
+            @container style(--page-seven:true){
+        
+                transition: 1s;
+                transform: rotateX(-10deg) rotateY(-20deg);
+            }
+    
+            @container style(--page-eight:true){
+        
+                transition: 1s;
+                transform: rotateX(20deg) rotateY(10deg);
+            }
+    
+            @container style(--page-nine:true){
+        
+                transition: 1s;
+                transform: rotateX(-20deg) rotateY(-10deg);
+            }
+    
+            @container style(--page-ten:true){
+        
+                transition: 1s;
+                transform: rotateX(10deg) rotateY(20deg);
+            }
+    
+            @container style(--page-eleven:true){
+        
+                transition: 1s;
+                transform: rotateX(-10deg) rotateY(-20deg);
+            }
+    
+            @container style(--page-twelve:true){
+        
+                transition: 1s;
+                transform: rotateX(20deg) rotateY(10deg);
+            }
+    
+            @container style(--page-thirteen:true){
+        
+                transition: 1s;
+                transform: rotateX(-20deg) rotateY(-10deg);
+            }
+    
+            @container style(--page-fourteen:true){
+        
+                transition: 1s;
+                transform: rotateX(10deg) rotateY(20deg);
+            }
+    
+            @container style(--page-fifteen:true){
+        
+                transition: 1s;
+                transform: rotateX(-10deg) rotateY(-20deg);
+            }
+    
+            @container style(--page-sixteen:true){
+        
+                transition: 1s;
+                transform: rotateX(20deg) rotateY(10deg);
+            }
+    
+            @container style(--page-seventeen:true){
+        
+                transition: 1s;
+                transform: rotateX(-20deg) rotateY(-10deg);
+            }
+    
+            @container style(--page-eighteen:true){
+        
+                transition: 1s;
+                transform: rotateX(10deg) rotateY(20deg);
+            }
+    
+            @container style(--page-nineteen:true){
+        
+                transition: 1s;
+                transform: rotateX(-10deg) rotateY(-20deg);
+            }
+    
+            @container style(--page-twenty:true){
+        
+                transition: 1s;
+                transform: rotateX(20deg) rotateY(10deg);
+            }
+    
+            @container style(--page-twentyone:true){
+        
+                transition: 1s;
+                transform: rotateX(-20deg) rotateY(-10deg);
+            }
+    
+            @container style(--page-twentytwo:true){
+        
+                transition: 1s;
+                transform: rotateX(10deg) rotateY(20deg);
+            }
+    
+            @container style(--page-twentythree:true){
+        
+                transition: 1s;
+                transform: rotateX(-10deg) rotateY(-20deg);
+            }
+    
+            @container style(--page-twentyfour:true){
+        
+                transition: 1s;
+                transform: rotateX(20deg) rotateY(10deg);
+            }
+    
+            @container style(--page-twentyfive:true){
+        
+                transition: 1s;
+                transform: rotateX(-20deg) rotateY(-10deg);
+            }
+            
+            @media screen and (max-width: 600px) {
+                transform: rotateX(0deg) rotateY(0deg);
+                --height: 25vh;
+                --width: calc(var(--height) * 3.5);
+                --depth: calc(var(--height));
+            }
+    
+            transform-origin: center;
+    
+                    
+            /* all faces */
+            & > div {
+                position: absolute;
+    
+                background-color: var(--clockframe);
+                border: 2px solid #000;
+    
+                text-align: center;
+                line-height: var(--height);
+    
+                font-weight: bold;
+                color: black;
+            }
+    
+            /* height and widht of faces */
+            /* front and back */
+            & > div:nth-child(1), & > div:nth-child(2) {
+                width: var(--width);
+                height: var(--height);
+            }
+    
+            /* left and right */
+            & > div:nth-child(3), & > div:nth-child(4) {
+                width: var(--depth);
+                height: var(--height);
+            }
+    
+            /* top and bottom */
+            & > div:nth-child(5), & > div:nth-child(6) {
+                width: var(--width);
+                height: var(--depth);
+            }
+    
+            /* The faces of the clock */
+            /* front */
+            & > div:nth-child(1) {
+                transform: translateZ(calc(var(--depth)/2));
+    
+                /* inner clock */
+                & > div {
+                    background-color: var(--clockinner);
+                    border: 2px solid #000;
+                    width: calc(var(--width) - calc(var(--clock-page-side) * 2));
+                    height: calc(var(--height) -  calc(var(--clock-page-side) * 2));
+                    position: absolute;
+                    top: var(--clock-page-side);
+                    left: var(--clock-page-side);
+                    border-radius: 5px;
+    
+                    display: flex;
+                    justify-content: space-evenly;
+                    align-items: center;
+    
+                    & > div{
+                        background-color: var(--clockpage);
+                        border: solid #000;
+                        width: calc(var(--width) / var(--clock-pages) - 20px);
+                        height: calc(var(--height) - 40px);
+                        border-radius: 5px;
+                        gap: 5em;
+                    }
+                    /* dial */
+                    & > div:nth-child(1){
+                        border: solid #000;
+                        width: calc(var(--width) / var(--clock-pages) / 2 - 20px);
+                       
+                        display: flex;
+                        flex-direction: column;
+                        position: relative;
+    
+                        > div{
+                            position: absolute;
+                            top: 0;
+                            height: 100%;
+                            width: 100%;
+    
+                            /* > label{
+                                background-color: red;
+                                z-index: 1;
+                                width: 30px;
+                                height: 10px;
+    
+                                margin: auto; */
+    
+                                /* hover */
+                                /* &:hover{
+                                    background-color: blue;
+                                } */
+                            /* } */
+                        }
+    
+                    }
+    
+                    & > div:nth-child(2){
+                        border: solid #000;
+                        width: calc(var(--width) / var(--clock-pages) * 0.75 - 20px);
+                    }
+    
+                    div:nth-child(3){
+                        border: solid #000;
+                        width: calc(var(--width) / var(--clock-pages) * 0.75 - 20px);
+                    }
+                }
+            }
+            /* back */
+            & > div:nth-child(2) {
+                transform: rotateY(180deg) translateZ(calc(var(--depth)/2));
+            }
+            /* left */
+            & > div:nth-child(3) {
+                transform: rotateY(-90deg) translateZ(calc(var(--height) / 2));
+            }
+            /* right */
+            & > div:nth-child(4) {
+                transform: rotateY(90deg) translateZ(calc(var(--height) * 3));
+            }
+            /* top */
+            & > div:nth-child(5) {
+                transform: rotateX(90deg) translateZ(calc(var(--height)/2));
+            }
+            /* bottom */
+            & > div:nth-child(6) {
+                transform: rotateX(-90deg) translateZ(calc(var(--height)/2));
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    section:has(>div) {
+        /* While trying to convert the chatgpt code to CSS nesting Christian helped with this dumb issue */
+        height: 100vh;
+        width: 100vw;
+        & > div {
+            /* front */
+            & > div:nth-child(1) {
+                /* inner clock */
+               
+                & > div {
+                    display: flex;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    flex-direction: column;
+                    & > div:nth-child(4){
+                        margin-top: 5rem;
+                        border: solid #000;
+                        height: 300px;
+                        width: 300px;
+    
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-size: contain;                        
+                    }
+                }
+            }
+        }
+    }
+}
