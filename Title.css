@@ -100,7 +100,7 @@ section:has(>div) {
                             content: 'Phill helping hand car repair man';
                         }
                         @container style(--page-twentythree:true){
-                            content: 'Phill helping hand catching a kid';
+                            content: 'Phill helping hand catching an kid';
                         }
                         @container style(--page-twentyfour:true){
                             content: 'Phill helping all of these people';

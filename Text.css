@@ -103,15 +103,18 @@ section:has(>div) {
                         }
 
                         @container style(--page-twentyone:true){
-                            content: 'Phill saves a man from choking and gets praised';
+                            content: 'Phill saves man from choking and gets praised';
+                        }
+
+                        @container style(--page-twentytwo:true){
+                            content: 'Phill helping hand car repair man';
                         }
 
                         @container style(--page-twentytwo:true){
                             content: 'Phill repairs an car full of old ladies and gets praised';
                         }
-
                         @container style(--page-twentythree:true){
-                            content: 'Phill catches a kid falling from a tree and doesn't get praised and the kid runs away';
+                            content: 'Phill saves a kid from falling out of a tree and does not get praised and kids runs away while phill annoyingly screaming at the kid that he never thanked him';
                         }
 
                         @container style(--page-twentyfour:true){
