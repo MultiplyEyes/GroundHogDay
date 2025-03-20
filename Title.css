@@ -18,6 +18,10 @@ section:has(>div) {
                         top: 20;
                         height: 10px;
                         line-height: 1.4;
+
+                        @media screen and (max-width: 600px) {
+                            margin-bottom: 5rem;
+                        }
                     }
                     & > h4::after{
                         text-wrap: wrap;
