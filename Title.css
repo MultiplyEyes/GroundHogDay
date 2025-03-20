@@ -1,0 +1,116 @@
+section:has(>div) {
+    /* While trying to convert the chatgpt code to CSS nesting Christian helped with this dumb issue */
+    & > div {
+        /* front */
+        & > div:nth-child(1) {
+
+            /* inner clock */
+            & > div {
+                
+
+                & > div:nth-child(2){
+                    text-wrap: wrap;
+                    overflow: visible;
+
+                    h4{
+                        color: white;
+                        margin-top: 0;
+                        top: 20;
+                        height: 10px;
+                        line-height: 1.4;
+                    }
+                    & > h4::after{
+                        text-wrap: wrap;
+
+                        @container style(--page-one:true){
+                            content: 'Introduction to the main character Phill Conners';
+                        }
+
+                        @container style(--page-two:true){
+                            content: 'For his job he need to go Small Town for Groundhog day';
+                        }
+
+                        @container style(--page-three:true){
+                            content: 'Arriving to the small town of Punxsutawney';
+                        }
+
+                        @container style(--page-four:true){
+                            content: 'Good morning Campers Its ground hog Day';
+                        }
+
+                        @container style(--page-five:true){
+                            content: 'Phill? Phill Conners? I thought it was you!';
+                        }
+
+                        @container style(--page-six:true){
+                            content: 'The start of the interview';
+                        }
+
+                        @container style(--page-seven:true){
+                            content: 'The end of groundhog day';
+                        }
+
+                        @container style(--page-eight:true){
+                            content: 'Good morning Campers Its ground hog Day..... again???';
+                        }
+
+                        @container style(--page-nine:true){
+                            content: 'Good morning campers its ground hog day..... again??? again???';
+                        }
+
+                        @container style(--page-ten:true){
+                            content: 'Asking for help goes to multiple doctors but ends up in an bar';
+                        }
+
+                        @container style(--page-eleven:true){
+                            content: 'Had a little too much to drink?';
+                        }
+                        
+                        @container style(--page-twelve:true){
+                            content: 'I can do anything I want';
+                        }
+                        @container style(--page-thirteen:true){
+                            content: 'In 20 Seconds i can rob a bank';
+                        }
+                        @container style(--page-fourteen:true){
+                            content: 'Time for Phill to get Rita or does he?';
+                        }
+                        @container style(--page-fifteen:true){
+                            content: 'SLAP';
+                        }
+                        @container style(--page-sixteen:true){
+                            content: 'SLAP';
+                        }
+                        @container style(--page-seventeen:true){
+                            content: 'SLAP';
+                        }
+                        @container style(--page-eighteen:true){
+                            content: 'So Phill kiddnappes PHILL???';
+                        }
+                        @container style(--page-nineteen:true){
+                            content: 'Old man in danger';
+                        }
+                        @container style(--page-twenty:true){
+                            content: 'Phill helping hand started';
+                        }
+                        @container style(--page-twentyone:true){
+                            content: 'Phill helping hand choking hazzard';
+                        }
+                        @container style(--page-twentytwo:true){
+                            content: 'Phill helping hand car repair man';
+                        }
+                        @container style(--page-twentythree:true){
+                            content: 'Phill helping hand catching a kid';
+                        }
+                        @container style(--page-twentyfour:true){
+                            content: 'Phill helping all of these people';
+                        }
+                        @container style(--page-twentyfive:true){
+                            content: 'Good morning campers its february 3rd';
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

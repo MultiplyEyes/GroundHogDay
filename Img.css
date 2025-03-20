@@ -1,0 +1,124 @@
+section:has(>div) {
+    /* While trying to convert the chatgpt code to CSS nesting Christian helped with this dumb issue */
+    & > div {
+        /* front */
+        & > div:nth-child(1) {
+
+            /* inner clock */
+            & > div {
+
+                
+                & > div:nth-child(4){
+                    border: solid #000;
+                    width: calc(var(--width) / var(--clock-pages) * 1.75 - 20px);
+
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: contain;
+                    background-image: url("https://m.media-amazon.com/images/I/81DMQkoVSdL.jpg"); 
+
+                    @container style(--page-one:true){
+                        background-image: url("https://i.ytimg.com/vi/0JrYMCtkRHE/maxresdefault.jpg"); 
+                    }
+                   
+
+                    @container style(--page-two:true){
+                        background-image: url("https://www.looper.com/img/gallery/the-ending-of-groundhog-day-explained/phils-actions-in-the-movies-early-stages-are-driven-by-his-runaway-ego-1651524812.jpg"); 
+                    }
+
+                    @container style(--page-three:true){
+                        background-image: url("https://upload.wikimedia.org/wikipedia/commons/5/52/Groundhog_day_movie_1992_location_2007-03-18_IMG_4313.JPG"); 
+                    }
+
+                    @container style(--page-four:true){
+                        background-image: url("https://i0.wp.com/housecrazysarah.life/wp-content/uploads/2021/01/Groundhog-Day-Movie-Bill-Murray-in-bed.jpg?resize=702%2C379&ssl=1"); 
+                    }
+
+                    @container style(--page-five:true){
+                        background-image: url("https://static1.cbrimages.com/wordpress/wp-content/uploads/2022/02/Groundhog-Day.jpg"); 
+                    }
+
+                    @container style(--page-six:true){
+                        background-image: url("https://thinkchristian-webassets.imgix.net/articleImages/2018/groundhog-day.jpg?auto=format%2Ccompress&crop=focalpoint&fit=crop&fp-x=0.486&fp-y=0.6313&h=500&ixlib=php-1.1.0&q=80&w=800&s=05236d2002e830d9892c4cfa670d38e2"); 
+                    }
+
+                    @container style(--page-seven:true){
+                        background-image: url("https://m.media-amazon.com/images/M/MV5BMzk1MmU2NGQtMjk2Yy00NTU5LTg2NjctNWQ4ZDQ3NmY2Y2NhXkEyXkFqcGc@._V1_.jpg"); 
+                    }
+
+                    @container style(--page-eight:true){
+                        background-image: url("https://i2-prod.stokesentinel.co.uk/incoming/article2051492.ece/ALTERNATES/s615/0_Groundhog-Day-Quiz-11.jpg"); 
+                    }
+
+                    @container style(--page-nine:true){
+                        background-image: url("https://ambitiousmediocrity.wordpress.com/wp-content/uploads/2013/03/dvd6.png"); 
+                    }
+
+                    @container style(--page-ten:true){
+                        background-image: url("https://cloudfront-us-east-1.images.arcpublishing.com/shawmedia/3PHFSZAJD65RKWIWL7MSRANNH4.jpg"); 
+                    }
+
+                    @container style(--page-eleven:true){
+                        background-image: url("https://morganrlewis.wordpress.com/wp-content/uploads/2012/02/gday-pulledover.jpg"); 
+                    }
+
+                    @container style(--page-twelve:true){
+                        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGnSeDeSI-gSNvZBqDosLUPO0Sk4_pmo05sA&s"); 
+                    }
+
+                    @container style(--page-thirteen:true){
+                        background-image: url("https://i.ytimg.com/vi/J77StPfQYHY/maxresdefault.jpg"); 
+                    }
+
+                    @container style(--page-fourteen:true){
+                        background-image: url("https://prodigalcinephile.com/wp-content/uploads/2019/01/groundhog-day-3.png?w=739"); 
+                    }
+
+                    @container style(--page-fifteen:true){
+                        background-image: url("https://i.ytimg.com/vi/5KDAERuf1pY/hqdefault.jpg"); 
+                    }
+
+                    @container style(--page-sixteen:true){
+                        background-image: url("https://flightstightsandmovienights.com/wp-content/uploads/2021/08/ghdadad14.png"); 
+                    }
+
+                    @container style(--page-seventeen:true){
+                        background-image: url("https://i.ytimg.com/vi/5KDAERuf1pY/hqdefault.jpg"); 
+                    }
+
+                    @container style(--page-eighteen:true){
+                        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIuEf-eGVvd9W_PvfS_7AeRMll7wJw9stjHg&s"); 
+                    }
+
+                    @container style(--page-nineteen:true){
+                        background-image: url("https://dejareviewer.com/wp-content/uploads/2011/11/phil-helps-notices-an-elderly-man-and-tries-to-help-him-but-nothing-he-does-keeps-that-day-from-being-the-mans-last.jpg"); 
+                    }
+
+                    @container style(--page-twenty:true){
+                        background-image: url("https://i.guim.co.uk/img/media/d415a40c908c11417ac607a95c3a4c840967a508/206_0_3783_2270/master/3783.jpg?width=465&dpr=1&s=none&crop=none"); 
+                    }
+
+                    @container style(--page-twentyone:true){
+                        background-image: url("https://misantropey.com/wp-content/uploads/2015/02/groundhog.png"); 
+                    }
+
+                    @container style(--page-twentytwo:true){
+                        background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBpvNR3AV2a4IB16bGoci9SNmdkU-ueb80ig&shttps://dejareviewer.com/wp-content/uploads/2023/09/phil-connors-saves-the-boy-he-saw-at-the-hospital-in-a-leg-cast.jpg"); 
+                    }
+
+                    @container style(--page-twentythree:true){
+                        background-image: url(""); 
+                    }
+
+                    @container style(--page-twentyfour:true){
+                        background-image: url(""); 
+                    }
+
+                    @container style(--page-twentyfive:true){
+                        background-image: url("");
+                    }
+                }
+            }
+        }
+    }
+}

@@ -6,7 +6,7 @@
     --banner: #e7a77a;
 
 
-    --height: 15vw;
+    --height: 13vw;
     --width: calc(var(--height) * 3.5);
     --depth: calc(var(--height));
 
@@ -17,7 +17,64 @@
 }
 
 *{
-    transition: 1s;
+    font-family: sans-serif;
+}
+
+fieldset {
+    height: 100%;
+    width: 100%;
+	aspect-ratio:1;
+	padding:0;
+	border:none;
+	
+	/* alle labels bovenop elkaar */
+	display:grid;
+
+    position: absolute;
+
+   margin: 0;
+}
+
+label {
+	/* alle labels bovenop elkaar */
+	grid-area:1/1;
+	
+	position:relative;
+	
+	/* niet klikbaar */
+	pointer-events:none;
+	/* niet zichtbaar */
+	opacity:0;
+	
+	/* indien zichtbaar --> zo groot als de fieldset */
+	width:100%;
+	height:500vh;
+	/* tekst staat in het midden van het label */
+	display:grid;
+	place-items:center;
+    z-index: 100;
+}
+
+/* het label waarin de radio checked is, kun je zien */
+label:has( :checked ){
+	opacity:1;
+}
+
+/* het label na het label dat checked heeft kun je op klikken */
+label:has( :checked ) + label,
+/* en je kunt klikken op het 1e label als het laatste label checked heeft */
+label:nth-of-type(1):has( ~ label:last-of-type :checked ){
+	pointer-events:all;
+}
+
+input {
+	/* geen rondje */
+	appearance:none;
+	
+	/* dekt het hele label af */
+	position:absolute;
+	inset:0;	
+	margin:0;
 }
 
 /* To get the 3d shape of the clock is used chat gpt */
@@ -35,7 +92,98 @@ html:has([value="3"]:checked) {
     --page-three: true;
 }
 
+html:has([value="4"]:checked) {
+    --page-four: true;
+}
+
+html:has([value="5"]:checked) {
+    --page-five: true;
+}
+
+html:has([value="6"]:checked) {
+    --page-six: true;
+}
+
+html:has([value="7"]:checked) {
+    --page-seven: true;
+}
+
+html:has([value="8"]:checked) {
+    --page-eight: true;
+}
+
+html:has([value="9"]:checked) {
+    --page-nine: true;
+}
+
+html:has([value="10"]:checked) {
+    --page-ten: true;
+}
+
+html:has([value="11"]:checked) {
+    --page-eleven: true;
+}
+
+html:has([value="12"]:checked) {
+    --page-twelve: true;
+}
+
+html:has([value="13"]:checked) {
+    --page-thirteen: true;
+}
+
+html:has([value="14"]:checked) {
+    --page-fourteen: true;
+}
+
+html:has([value="15"]:checked) {
+    --page-fifteen: true;
+}
+
+html:has([value="16"]:checked) {
+    --page-sixteen: true;
+}
+
+html:has([value="17"]:checked) {
+    --page-seventeen: true;
+}
+
+html:has([value="18"]:checked) {
+    --page-eighteen: true;
+}
+
+html:has([value="19"]:checked) {
+    --page-nineteen: true;
+}
+
+html:has([value="20"]:checked) {
+    --page-twenty: true;
+}
+
+html:has([value="21"]:checked) {
+    --page-twentyone: true;
+}
+
+html:has([value="22"]:checked) {
+    --page-twentytwo: true;
+}
+
+html:has([value="23"]:checked) {
+    --page-twentythree: true;
+}
+
+html:has([value="24"]:checked) {
+    --page-twentyfour: true;
+}
+
+html:has([value="25"]:checked) {
+    --page-twentyfive: true;
+}
+
+
 body {
+    transition: 1s;
+    margin: 0;
     background-color: var(--banner);
 
     height: 100vh;
@@ -43,227 +191,15 @@ body {
     overflow-y: hidden;
 
     @container style(--page-one:true){
-        background-color: red;
+        background-color: rgb(198, 151, 151);
     }
 
     @container style(--page-two:true){
-        background-color: darkblue;
+        background-color: rgb(45, 45, 121);
     }
 
     @container style(--page-three:true){
-        background-color: var(--banner);
-    }
-}
-
-section:has(div) {
-    position: sticky;
-
-    transition: 1s;
-
-    width: var(--width);
-    height: var(--height);
-
-    perspective: 1000px; /* Adds depth */
-
-    top: calc(50% - var(--height)/2);
-    left: calc(50% - var(--width)/2);
-
-    /* While trying to convert the chatgpt code to CSS nesting Christian helped with this dumb issue */
-    & > div {
-        /* clock */
-        position: absolute;
-        transform-style: preserve-3d;
-        
-        /* scroll animation */
-        animation: clock;
-        animation-timeline: scroll();
-
-        transform: var(--rotate);
-
-        @container style(--page-one:true){
-    
-            transform: rotateX(40deg) rotateY(10deg);
-        }
-
-        @container style(--page-two:true){
-    
-            transform: rotateX(5deg) rotateY(-20deg);
-        }
-
-        @container style(--page-three:true){
-    
-            transform: rotateX(-20deg) rotateY(10deg);
-        }
-                
-        /* all faces */
-        & > div {
-            position: absolute;
-
-            background-color: var(--clockframe);
-            border: 2px solid #000;
-
-            text-align: center;
-            line-height: var(--height);
-
-            font-size: 20px;
-            font-weight: bold;
-            color: black;
-        }
-
-        /* height and widht of faces */
-        /* front and back */
-        & > div:nth-child(1), & > div:nth-child(2) {
-            width: var(--width);
-            height: var(--height);
-        }
-
-        /* left and right */
-        & > div:nth-child(3), & > div:nth-child(4) {
-            width: var(--depth);
-            height: var(--height);
-        }
-
-        /* top and bottom */
-        & > div:nth-child(5), & > div:nth-child(6) {
-            width: var(--width);
-            height: var(--depth);
-        }
-
-        /* The faces of the clock */
-        /* front */
-        & > div:nth-child(1) {
-            transform: translateZ(calc(var(--depth)/2));
-
-            /* inner clock */
-            & > div {
-                background-color: var(--clockinner);
-                border: 2px solid #000;
-                width: calc(var(--width) - calc(var(--clock-page-side) * 2));
-                height: calc(var(--height) -  calc(var(--clock-page-side) * 2));
-                position: absolute;
-                top: var(--clock-page-side);
-                left: var(--clock-page-side);
-                border-radius: 5px;
-
-                display: flex;
-                justify-content: space-evenly;
-                align-items: center;
-
-                & > div{
-                    background-color: var(--clockpage);
-                    border: solid #000;
-                    width: calc(var(--width) / var(--clock-pages) - 20px);
-                    height: calc(var(--height) - 40px);
-                    border-radius: 5px;
-                    gap: 5em;
-                }
-                /* dial */
-                & > div:nth-child(1){
-                    border: solid #000;
-                    width: calc(var(--width) / var(--clock-pages) / 2 - 20px);
-                   
-                    display: flex;
-                    flex-direction: column;
-                    position: relative;
-
-                    > div{
-                        position: absolute;
-                        top: 0;
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: space-between;
-                        height: 100%;
-                        width: 100%;
-                        align-items: center;
-
-                        > label{
-                            background-color: red;
-                            z-index: 1;
-                            width: 30px;
-                            height: 10px;
-
-                            margin: auto;
-
-                            /* hover */
-                            &:hover{
-                                background-color: blue;
-                            }
-                        }
-                        
-                    }
-
-                }
-
-                & > div:nth-child(2){
-                    border: solid #000;
-                    width: calc(var(--width) / var(--clock-pages) * 0.75 - 20px);
-
-                    & > div{
-                        position: absolute;
-                        top: 0;
-                        align-items: center;
-                    }
-                }
-
-                div:nth-child(3){
-                    border: solid #000;
-                    width: calc(var(--width) / var(--clock-pages) * 0.75 - 20px);
-                }
-
-                & > div:nth-child(4){
-                    border: solid #000;
-                    width: calc(var(--width) / var(--clock-pages) * 1.75 - 20px);
-                    
-                    @container style(--page-one:true){
-                        & > img:nth-child(1){
-                            background-image: url('card.png'); 
-                        }
-                    }
-
-                    @container style(--page-two:true){
-                        & > img:nth-child(1){
-                            background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMYBZv6gK568YgwOE7Jg1reVOTXv8RMQfyzg&s'); 
-                        }
-                    }
-
-                    @container style(--page-three:true){
-                        & > img:nth-child(1){
-                            background-image: url('https://cinemasips.com/wp-content/uploads/2014/02/groundkoffie.jpg'); 
-                        }
-                    }
-
-                    & > img{
-                        object-fit: cover;
-
-                        background-repeat: no-repeat;
-                        background-size: cover;
-
-                        width: auto;
-                        height: auto;
-                    }
-                }
-            }
-        }
-        /* back */
-        & > div:nth-child(2) {
-            transform: rotateY(180deg) translateZ(calc(var(--depth)/2));
-        }
-        /* left */
-        & > div:nth-child(3) {
-            transform: rotateY(-90deg) translateZ(calc(var(--height) / 2));
-        }
-        /* right */
-        & > div:nth-child(4) {
-            transform: rotateY(90deg) translateZ(calc(var(--height) * 3));
-        }
-        /* top */
-        & > div:nth-child(5) {
-            transform: rotateX(90deg) translateZ(calc(var(--height)/2));
-        }
-        /* bottom */
-        & > div:nth-child(6) {
-            transform: rotateX(-90deg) translateZ(calc(var(--height)/2));
-        }
+        background-color: rgb(45, 121, 55);
     }
 }
 

@@ -1,25 +1,115 @@
 html:has([value="1"]:checked) {
-    --red: true;
+    --page-1:true;
 }
 
 html:has([value="2"]:checked) {
-    --blue: true;
+    --page-2:true;
 }
 
-@container style(--blue:true){
-    body{
-        background-color: blue;
-    }
+html:has([value="3"]:checked) {
+    --page-3:true;
 }
 
-@container style(--red:true){
+html:has([value="4"]:checked) {
+    --page-4:true;
+}
+
+@container style(--page-1:true){
     body{
         background-color: red;
     }
 }
 
-@container style(--red:true) and style(--blue:true){
+@container style(--page-2:true){
     body{
-        background-color: purple;
+        background-color: blue;
     }
 }
+
+@container style(--page-3:true){
+    body{
+        background-color: orange;
+    }
+}
+
+@container style(--page-4:true){
+    body{
+        background-color: black;
+    }
+}
+
+fieldset {
+	width:6em;
+	aspect-ratio:1;
+	padding:0;
+	border:none;
+	
+	/* alle labels bovenop elkaar */
+	display:grid;
+}
+
+label {
+	/* alle labels bovenop elkaar */
+	grid-area:1/1;
+	
+	position:relative;
+	
+	/* niet klikbaar */
+	pointer-events:none;
+	/* niet zichtbaar */
+	opacity:0;
+	
+	/* indien zichtbaar --> zo groot als de fieldset */
+	width:100%;
+	height:100%;
+	background-image:linear-gradient(45deg, lime,limegreen);
+	
+	/* tekst staat in het midden van het label */
+	display:grid;
+	place-items:center;
+}
+
+/* het label waarin de radio checked is, kun je zien */
+label:has( :checked ){
+	opacity:1;
+}
+
+/* het label na het label dat checked heeft kun je op klikken */
+label:has( :checked ) + label,
+/* en je kunt klikken op het 1e label als het laatste label checked heeft */
+label:nth-of-type(1):has( ~ label:last-of-type :checked ){
+	pointer-events:all;
+}
+
+input {
+	/* geen rondje */
+	appearance:none;
+	
+	/* dekt het hele label af */
+	position:absolute;
+	inset:0;	
+	margin:0;
+}
+
+
+
+/* fieldset:has([value="1"]:checked ) div::after { content:"jan"; } 
+fieldset:has([value="2"]:checked ) div::after { content:"feb"; } 
+fieldset:has([value="3"]:checked ) div::after { content:"maa"; } 
+fieldset:has([value="4"]:checked ) div::after { content:"apr"; } 
+
+fieldset:has([value="5"]:checked ) div::after { content:"may"; } 
+fieldset:has([value="6"]:checked ) div::after { content:"jun"; } 
+fieldset:has([value="7"]:checked ) div::after { content:"jul"; } 
+fieldset:has([value="8"]:checked ) div::after { content:"aug"; } 
+
+fieldset:has([value="9"]:checked ) div::after { content:"sep"; } 
+fieldset:has([value="10"]:checked ) div::after { content:"oct"; } 
+fieldset:has([value="11"]:checked ) div::after { content:"nov"; } 
+fieldset:has([value="12"]:checked ) div::after { content:"dec"; }  */
+
+
+/* input:checked + input,
+input:nth-of-type(1):has( ~ input:last-of-type:checked ) {
+	display:block;
+} */

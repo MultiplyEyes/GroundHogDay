@@ -72,7 +72,7 @@ Turning the clock retangular is a little anoying but i by adjusting the postion 
 
 Adjusting the faces to show images was als possible using Style queries.
 
-![alt text](image.png)
+![alt text](pics/image.png)
 
 With this i can change the pages of the clock with button click and the position of the Clock to make it more interactive.
 
