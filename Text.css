@@ -1,133 +1,128 @@
-section:has(>div) {
-    /* While trying to convert the chatgpt code to CSS nesting Christian helped with this dumb issue */
-    & > div {
-        /* front */
-        & > div:nth-child(1) {
+div:has(>p){                    
+    p{  
+        color: white;
+        margin-top: 0;
+        top: 20;
+        height: 10px;
+        
+        line-height: 1.4;
+        font-size: xx-small;
 
-            /* inner clock */
-            & > div {
-                div:nth-child(3){                    
-                    p{  
-                        color: white;
-                        margin-top: 0;
-                        top: 20;
-                        height: 10px;
-                       
-                        line-height: 1.4;
-                        font-size: xx-small;
+        @media screen and (max-width: 600px) {
+            font-size: large;
+        }
+    }
+    & > p::after{
+        margin-left: 0.5rem;
+        @container style(--page-one:true){
+            content: 'A narcissistic, self-centered weatherman finds himself in a time loop on Groundhog Day.';
+        }
 
-                        @media screen and (max-width: 600px) {
-                            font-size: large;
-                        }
-                    }
-                    & > p::after{
-                        margin-left: 0.5rem;
-                        @container style(--page-one:true){
-                            content: 'A narcissistic, self-centered weatherman finds himself in a time loop on Groundhog Day.';
-                        }
+        @container style(--page-two:true){
+            content: 'On the way to ground hog he meets his new producer Rita. Rita first Opinion Phill is negative because of his ego.';
+            
+        }
 
-                        @container style(--page-two:true){
-                            content: 'On the way to ground hog he meets his new producer Rita. Rita first Opinion Phill is negative because of his ego.';
-                        }
+        @container style(--page-three:true){
+            content: 'He instantly got annoyed and went to his own room in an completly different building thanks to Rita knowning Phill hate the hotel they went too';
+        }
 
-                        @container style(--page-three:true){
-                            content: 'He instantly got annoyed and went to his own room in an completly different building thanks to Rita knowning Phill hate the hotel they went too';
-                        }
+        @container style(--page-four:true){
+            content: 'Phill Wakes up talks to other residents of the building annoyed. And goes to the groundhog area';
+        }
 
-                        @container style(--page-four:true){
-                            content: 'Phill Wakes up talks to other residents of the building annoyed. And goes to the groundhog area';
-                        }
+        @container style(--page-five:true){
+            content: 'While on the way to groundhog day area he meets Ned Ryrezon. Old school mate who dated his sister and want Phill to buy life insurance. Phill tries to walk away but gets his food wet';
+        }
 
-                        @container style(--page-five:true){
-                            content: 'While on the way to groundhog day area he meets Ned Ryrezon. Old school mate who dated his sister and want Phill to buy life insurance. Phill tries to walk away but gets his food wet';
-                        }
+        @container style(--page-six:true){
+            content: 'When Arriving at the groundhog area Phill meets with Rita and Larry the camera man. Phill is annoyed by the whole groundhog day event and does it sarcasticly';
+        }
 
-                        @container style(--page-six:true){
-                            content: 'When Arriving at the groundhog area Phill meets with Rita and Larry the camera man. Phill is annoyed by the whole groundhog day event and does it sarcasticly';
-                        }
+        @container style(--page-seven:true){
+            content: 'But because of the snowstorm arround the Punxsutawney Phill and his crew are stuck in the town and need to stay the night';
+        }
 
-                        @container style(--page-seven:true){
-                            content: 'But because of the snowstorm arround the Punxsutawney Phill and his crew are stuck in the town and need to stay the night';
-                        }
+        @container style(--page-eight:true){
+            content: 'Phill waking up with same message he heard the day before. Phill is confused and thinks he is going crazy but contunies his day almost the same as before';
+        }
 
-                        @container style(--page-eight:true){
-                            content: 'Phill waking up with same message he heard the day before. Phill is confused and thinks he is going crazy but contunies his day almost the same as before';
-                        }
+        @container style(--page-nine:true){
+            content: 'Going throught the same day Phill tries to test if everone is messing with by break an pencil seeing if it is still broken the next day. But it is not';
+        }
 
-                        @container style(--page-nine:true){
-                            content: 'Going throught the same day Phill tries to test if everone is messing with by break an pencil seeing if it is still broken the next day. But it is not';
-                        }
+        @container style(--page-ten:true){
+            content: 'In the bar Phill talks to the two guy who are in the bar every day. Phill tries to get them to tell him what is going on but they dont know what he is talking about';
+        }
 
-                        @container style(--page-ten:true){
-                            content: 'In the bar Phill talks to the two guy who are in the bar every day. Phill tries to get them to tell him what is going on but they dont know what he is talking about';
-                        }
+        @container style(--page-eleven:true){
+            content: 'The drunk guys gave him idea that he could do anything if that is true. Phill than purpously drives recklessly and gets arrested by the police stays the night but Wakes up the next day on february 2nd groundhog day'; 
+        }
 
-                        @container style(--page-eleven:true){
-                            content: 'The drunk guys gave him idea that he could do anything if that is true. Phill than purpously drives recklessly and gets arrested by the police stays the night but Wakes up the next day on february 2nd groundhog day'; 
-                        }
+        @container style(--page-twelve:true){
+            content: 'Knowning that the day repeat he takes adventige of this. He gets involved with multiple people and takes adventige of them like with Nancy. Phill sleeps with her and than the day resets';
+        }
 
-                        @container style(--page-twelve:true){
-                            content: 'Knowning that the day repeat he takes adventige of this. He gets involved with multiple people and takes adventige of them like with Nancy. Phill sleeps with her and than the day resets';
-                        }
+        @container style(--page-thirteen:true){
+            content: 'By using the loops he takes adventige of the guards and steals a lot of money it is suspected he uses this buy a car and have fun with another woman';
+        }
 
-                        @container style(--page-thirteen:true){
-                            content: 'By using the loops he takes adventige of the guards and steals a lot of money it is suspected he uses this buy a car and have fun with another woman';
-                        }
+        @container style(--page-fourteen:true){
+            content: 'Phill tries to get in an relationship with Rita but fails mulitple time and makes changes to his answers to get Rita to like him. But Rita finds out slaps him';
+        }
 
-                        @container style(--page-fourteen:true){
-                            content: 'Phill tries to get in an relationship with Rita but fails mulitple time and makes changes to his answers to get Rita to like him. But Rita finds out slaps him';
-                        }
+        @container style(--page-fifteen:true){
+            content: 'slaps him again';
+        }
 
-                        @container style(--page-fifteen:true){
-                            content: 'slaps him again';
-                        }
+        @container style(--page-sixteen:true){
+            content: 'slaps him again';
+        }
 
-                        @container style(--page-sixteen:true){
-                            content: 'slaps him again';
-                        }
+        @container style(--page-seventeen:true){
+            content: 'and slaps him again';
+        }
 
-                        @container style(--page-seventeen:true){
-                            content: 'and slaps him again';
-                        }
+        @container style(--page-eighteen:true){
+            content: 'because of all the events taking place Phill starts to get depressed and tries to kill himself starting by kidnapping the groundhog and driving off cliff';
+        }
 
-                        @container style(--page-eighteen:true){
-                            content: 'because of all the events taking place Phill starts to get depressed and tries to kill himself starting by kidnapping the groundhog and driving off cliff';
-                        }
+        @container style(--page-nineteen:true){
+            content: 'Phill than starts to notice an old man who dies at the end of the day. Phill tries to save him but fails multiple time.';
+        }
 
-                        @container style(--page-nineteen:true){
-                            content: 'Phill than starts to notice an old man who dies at the end of the day. Phill tries to save him but fails multiple time.';
-                        }
+        @container style(--page-twenty:true){
+            content: 'Phill continues to try and help the residents of the town and slowly gets better at it. And learn new skill on the way';
+        }
 
-                        @container style(--page-twenty:true){
-                            content: 'Phill continues to try and help the residents of the town and slowly gets better at it. And learn new skill on the way';
-                        }
+        @container style(--page-twentyone:true){
+            content: 'Phill saves man from choking and gets praised';
+        }
 
-                        @container style(--page-twentyone:true){
-                            content: 'Phill saves man from choking and gets praised';
-                        }
+        @container style(--page-twentytwo:true){
+            content: 'Phill helping hand car repair man';
+        }
 
-                        @container style(--page-twentytwo:true){
-                            content: 'Phill helping hand car repair man';
-                        }
+        @container style(--page-twentytwo:true){
+            content: 'Phill repairs an car full of old ladies and gets praised';
+        }
+        @container style(--page-twentythree:true){
+            content: 'Phill saves a kid from falling out of a tree and does not get praised and kids runs away while phill annoyingly screaming at the kid that he never thanked him';
+        }
 
-                        @container style(--page-twentytwo:true){
-                            content: 'Phill repairs an car full of old ladies and gets praised';
-                        }
-                        @container style(--page-twentythree:true){
-                            content: 'Phill saves a kid from falling out of a tree and does not get praised and kids runs away while phill annoyingly screaming at the kid that he never thanked him';
-                        }
+        @container style(--page-twentyfour:true){
+            content: 'In the end of the day Phill gets Rita to like after 1000s of loops and the day resets but this time Phill wakes up on february 3rd';
+        }
 
-                        @container style(--page-twentyfour:true){
-                            content: 'In the end of the day Phill gets Rita to like after 1000s of loops and the day resets but this time Phill wakes up on february 3rd';
-                        }
-
-                        @container style(--page-twentyfive:true){
-                            content: 'Phill asks Rita if she wants to live with him in Punxsutawney and she says yes';
-                        }
-                        /* content: 'hello World'; */
-                    }
-                }
-            }
+        @container style(--page-twentyfive:true){
+            content: 'Phill asks Rita if she wants to live with him in Punxsutawney and she says yes';
+        }
+        /* content: 'hello World'; */
+    }
+    @media screen and (max-width: 600px) {
+        p{
+            padding: 10px;
+            font-size:1em;
         }
     }
 }

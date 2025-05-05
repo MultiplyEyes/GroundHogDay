@@ -6,7 +6,7 @@
     --banner: #e7a77a;
 
 
-    --height: 13vw;
+    --height: max(13vw, 11em);
     --width: calc(var(--height) * 3.5);
     --depth: calc(var(--height));
 
@@ -23,7 +23,6 @@
 fieldset {
     height: 100%;
     width: 100%;
-	aspect-ratio:1;
 	padding:0;
 	border:none;
 	
@@ -190,104 +189,105 @@ body {
 
     overflow-y: hidden;
 
+
     @container style(--page-one:true){
-        background-color: rgb(198, 151, 151);
+        background-color: rgb(164, 207, 239);
     }
 
     @container style(--page-two:true){
-        background-color: rgb(45, 45, 121);
+        background-color: rgb(149, 149, 163);
     }
 
     @container style(--page-three:true){
-        background-color: rgb(45, 121, 55);
+        background-color: rgb(113, 218, 127);
     }
 
     @container style(--page-four:true){
-        background-color: rgb(121, 45, 45);
+        background-color: rgb(188, 102, 89);
     }
 
     @container style(--page-five:true){
-        background-color: rgb(121, 45, 121);
+        background-color: rgb(203, 212, 213);
     }
 
     @container style(--page-six:true){
-        background-color: rgb(121, 121, 45);
+        background-color: rgb(213, 200, 156);
     }
 
     @container style(--page-seven:true){
-        background-color: rgb(121, 121, 121);
+        background-color: rgb(203, 212, 213);
     }
 
     @container style(--page-eight:true){
-        background-color: rgb(45, 45, 45);
+        background-color: rgb(188, 102, 89);
     }
 
     @container style(--page-nine:true){
-        background-color: rgb(45, 121, 121);
+        background-color: rgb(188, 102, 89);
     }
 
     @container style(--page-ten:true){
-        background-color: rgb(121, 45, 121);
+        background-color: rgb(187, 187, 187);
     }
 
     @container style(--page-eleven:true){
-        background-color: rgb(121, 121, 45);
+        background-color: rgb(33, 42, 104);
     }
 
     @container style(--page-twelve:true){
-        background-color: rgb(121, 121, 121);
+        background-color: rgb(227, 227, 158);
     }
 
     @container style(--page-thirteen:true){
-        background-color: rgb(45, 45, 45);
+        background-color: rgb(205, 196, 138);
     }
 
     @container style(--page-fourteen:true){
-        background-color: rgb(45, 121, 121);
+        background-color: rgb(0, 42, 9);
     }
 
     @container style(--page-fifteen:true){
-        background-color: rgb(121, 45, 121);
+        background-color: rgb(4, 0, 90);
     }
 
     @container style(--page-sixteen:true){
-        background-color: rgb(121, 121, 45);
+        background-color: rgb(24, 89, 139);
     }
 
     @container style(--page-seventeen:true){
-        background-color: rgb(121, 121, 121);
+        background-color: rgb(4, 0, 90);
     }
 
     @container style(--page-eighteen:true){
-        background-color: rgb(45, 45, 45);
+        background-color: rgb(255, 0, 0);
     }
 
     @container style(--page-nineteen:true){
-        background-color: rgb(45, 121, 121);
+        background-color: rgb(225, 216, 152);
     }
 
     @container style(--page-twenty:true){
-        background-color: rgb(121, 45, 121);
+        background-color: rgb(239, 240, 177);
     }
 
     @container style(--page-twentyone:true){
-        background-color: rgb(121, 121, 45);
+        background-color: rgb(138, 105, 8);
     }
 
     @container style(--page-twentytwo:true){
-        background-color: rgb(121, 121, 121);
+        background-color: rgb(188, 233, 220);
     }
 
     @container style(--page-twentythree:true){
-        background-color: rgb(45, 45, 45);
+        background-color: rgb(146, 146, 146);
     }
 
     @container style(--page-twentyfour:true){
-        background-color: rgb(45, 121, 121);
+        background-color: rgb(52, 59, 69);
     }
 
     @container style(--page-twentyfive:true){
-        background-color: rgb(121, 45, 121);
+        background-color: rgb(255, 255, 255);
     }
 }
 
@@ -305,5 +305,16 @@ body {
 @media screen and (max-width: 600px) {
     :root {
         --height: 25vw;
+    }
+}
+
+
+@keyframes flip {
+    0%{
+        transform: rotateY(180deg);
+    }
+
+    100%{
+        transform: rotateY(360deg);
     }
 }

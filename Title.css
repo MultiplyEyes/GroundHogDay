@@ -1,120 +1,244 @@
-section:has(>div) {
-    /* While trying to convert the chatgpt code to CSS nesting Christian helped with this dumb issue */
-    & > div {
-        /* front */
-        & > div:nth-child(1) {
+div:has(>h4){
+    text-wrap: wrap;
+    overflow: hidden;
 
-            /* inner clock */
-            & > div {
-                
 
-                & > div:nth-child(2){
-                    text-wrap: wrap;
-                    overflow: visible;
+    h4{
+        color: white;
+        margin-top: 0;
+        top: 20;
+        height: 10px;
+        line-height: 1.4;
+        font-size:clamp(.5em, 2vw, .75em);
 
-                    h4{
-                        color: white;
-                        margin-top: 0;
-                        top: 20;
-                        height: 10px;
-                        line-height: 1.4;
+        @media screen and (max-width: 600px) {
+            margin-bottom: 5rem;
+        }
+        
+        &::after{
+            text-wrap: wrap;
 
-                        @media screen and (max-width: 600px) {
-                            margin-bottom: 5rem;
-                        }
-                    }
-                    & > h4::after{
-                        text-wrap: wrap;
-
-                        @container style(--page-one:true){
-                            content: 'Introduction to the main character Phill Conners';
-                        }
-
-                        @container style(--page-two:true){
-                            content: 'For his job he need to go Small Town for Groundhog day';
-                        }
-
-                        @container style(--page-three:true){
-                            content: 'Arriving to the small town of Punxsutawney';
-                        }
-
-                        @container style(--page-four:true){
-                            content: 'Good morning Campers Its ground hog Day';
-                        }
-
-                        @container style(--page-five:true){
-                            content: 'Phill? Phill Conners? I thought it was you!';
-                        }
-
-                        @container style(--page-six:true){
-                            content: 'The start of the interview';
-                        }
-
-                        @container style(--page-seven:true){
-                            content: 'The end of groundhog day';
-                        }
-
-                        @container style(--page-eight:true){
-                            content: 'Good morning Campers Its ground hog Day..... again???';
-                        }
-
-                        @container style(--page-nine:true){
-                            content: 'Good morning campers its ground hog day..... again??? again???';
-                        }
-
-                        @container style(--page-ten:true){
-                            content: 'Asking for help goes to multiple doctors but ends up in an bar';
-                        }
-
-                        @container style(--page-eleven:true){
-                            content: 'Had a little too much to drink?';
-                        }
-                        
-                        @container style(--page-twelve:true){
-                            content: 'I can do anything I want';
-                        }
-                        @container style(--page-thirteen:true){
-                            content: 'In 20 Seconds i can rob a bank';
-                        }
-                        @container style(--page-fourteen:true){
-                            content: 'Time for Phill to get Rita or does he?';
-                        }
-                        @container style(--page-fifteen:true){
-                            content: 'SLAP';
-                        }
-                        @container style(--page-sixteen:true){
-                            content: 'SLAP';
-                        }
-                        @container style(--page-seventeen:true){
-                            content: 'SLAP';
-                        }
-                        @container style(--page-eighteen:true){
-                            content: 'So Phill kiddnappes PHILL???';
-                        }
-                        @container style(--page-nineteen:true){
-                            content: 'Old man in danger';
-                        }
-                        @container style(--page-twenty:true){
-                            content: 'Phill helping hand started';
-                        }
-                        @container style(--page-twentyone:true){
-                            content: 'Phill helping hand choking hazzard';
-                        }
-                        @container style(--page-twentytwo:true){
-                            content: 'Phill helping hand car repair man';
-                        }
-                        @container style(--page-twentythree:true){
-                            content: 'Phill helping hand catching an kid';
-                        }
-                        @container style(--page-twentyfour:true){
-                            content: 'Phill helping all of these people';
-                        }
-                        @container style(--page-twentyfive:true){
-                            content: 'Good morning campers its february 3rd';
-                        }
-                    }
-                }
+            @container style(--page-one:true){
+                content: 'Introduction to the main character Phill Conners';
             }
+
+            @container style(--page-two:true){
+                content: 'For his job he need to go Small Town for Groundhog day';
+            }
+
+            @container style(--page-three:true){
+                content: 'Arriving to the small town of Punxsutawney';
+            }
+
+            @container style(--page-four:true){
+                content: 'Good morning Campers Its ground hog Day';
+            }
+
+            @container style(--page-five:true){
+                content: 'Phill? Phill Conners? I thought it was you!';
+            }
+
+            @container style(--page-six:true){
+                content: 'The start of the interview';
+            }
+
+            @container style(--page-seven:true){
+                content: 'The end of groundhog day';
+            }
+
+            @container style(--page-eight:true){
+                content: 'Good morning Campers Its ground hog Day..... again???';
+            }
+
+            @container style(--page-nine:true){
+                content: 'Good morning campers its ground hog day..... again??? again???';
+            }
+
+            @container style(--page-ten:true){
+                content: 'Asking for help goes to multiple doctors but ends up in an bar';
+            }
+
+            @container style(--page-eleven:true){
+                content: 'Had a little too much to drink?';
+            }
+            
+            @container style(--page-twelve:true){
+                content: 'I can do anything I want';
+            }
+            @container style(--page-thirteen:true){
+                content: 'In 20 Seconds i can rob a bank';
+            }
+            @container style(--page-fourteen:true){
+                content: 'Time for Phill to get Rita or does he?';
+            }
+            @container style(--page-fifteen:true){
+                content: 'SLAP';
+            }
+            @container style(--page-sixteen:true){
+                content: 'SLAP';
+            }
+            @container style(--page-seventeen:true){
+                content: 'SLAP';
+            }
+            @container style(--page-eighteen:true){
+                content: 'So Phill kiddnappes PHILL???';
+            }
+            @container style(--page-nineteen:true){
+                content: 'Old man in danger';
+            }
+            @container style(--page-twenty:true){
+                content: 'Phill helping hand started';
+            }
+            @container style(--page-twentyone:true){
+                content: 'Phill helping hand choking hazzard';
+            }
+            @container style(--page-twentytwo:true){
+                content: 'Phill helping hand car repair man';
+            }
+            @container style(--page-twentythree:true){
+                content: 'Phill helping hand catching an kid';
+            }
+            @container style(--page-twentyfour:true){
+                content: 'Phill helping all of these people';
+            }
+            @container style(--page-twentyfive:true){
+                content: 'Good morning campers its february 3rd';
+            }
+        }
+    }
+    @media screen and (max-width: 600px) {
+        h4{
+            padding: 10px;
+            font-size:1em;
+        }
+    }
+}
+
+div:has(>h1){
+    text-wrap: wrap;
+    overflow: hidden;
+
+
+    h1{
+        color: white;
+        margin-top: 0;
+        top: 20;
+        height: 10px;
+        line-height: 1.4;
+        font-size:clamp(1em, 10vw, 1.5em);
+
+        @media screen and (max-width: 600px) {
+            margin-bottom: 5rem;
+        }
+        
+        &::after{
+            text-wrap: wrap;
+
+            @container style(--page-one:true){
+                content: '1';
+            }
+
+            @container style(--page-two:true){
+                content: '2';
+            }
+
+            @container style(--page-three:true){
+                content: '3';
+            }
+
+            @container style(--page-four:true){
+                content: '4';
+            }
+
+            @container style(--page-five:true){
+                content: '5';
+            }
+
+            @container style(--page-six:true){
+                content: '6';
+            }
+
+            @container style(--page-seven:true){
+                content: '7';
+            }
+
+            @container style(--page-eight:true){
+                content: '8';
+            }
+
+            @container style(--page-nine:true){
+                content: '9';
+            }
+
+            @container style(--page-ten:true){
+                content: '10';
+            }
+
+            @container style(--page-eleven:true){
+                content: '11';
+            }
+
+            @container style(--page-twelve:true){
+                content: '12';
+            }
+
+            @container style(--page-thirteen:true){
+                content: '13';
+            }
+
+            @container style(--page-fourteen:true){
+                content: '14';
+            }
+
+            @container style(--page-fifteen:true){
+                content: '15';
+            }
+
+            @container style(--page-sixteen:true){
+                content: '16';
+            }
+
+            @container style(--page-seventeen:true){
+                content: '17';
+            }
+
+            @container style(--page-eighteen:true){
+                content: '18';
+            }
+
+            @container style(--page-nineteen:true){
+                content: '19';
+            }
+
+            @container style(--page-twenty:true){
+                content: '20';
+            }
+
+            @container style(--page-twentyone:true){
+                content: '21';
+            }
+
+            @container style(--page-twentytwo:true){
+                content: '22';
+            }
+
+            @container style(--page-twentythree:true){
+                content: '23';
+            }
+
+            @container style(--page-twentyfour:true){
+                content: '24';
+            }
+
+            @container style(--page-twentyfive:true){
+                content: '25';
+            }
+        }
+    }
+    @media screen and (max-width: 600px) {
+        h1{
+            padding: 10px;
+            font-size:1em;
         }
     }
 }
